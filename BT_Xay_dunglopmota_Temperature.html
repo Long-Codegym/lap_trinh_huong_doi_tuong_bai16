@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <h2>Temperature</h2>
+        <input id="doC" type="text" placeholder="nhập độ C">
+        <br>
+        <br>
+        <button onclick="giaTri()"> Đổi nhiệt độ</button>
+        <p>Độ F= <span id="doF"></span> </p>
+        <br>
+        <p>Độ K= <span id="doK"></span></p>
+</body>
+</html>
+
+<script>
+    class Temperature {
+        doC;undefined
+        constructor(doC) {
+            this.doC = doC;
+        }
+        getDoF(){
+            return doC*9/5 + 32;
+        }
+        getDoK(){
+            return doC + 273;
+        }
+    }
+    function giaTri() {
+        doC = parseInt(document.getElementById("doC").value);
+        if (doC <-273){
+            alert("nhập sai nhiệt độ");
+        }else {
+            let nhietDo = new Temperature(doC);
+            document.getElementById("doF").innerText = nhietDo.getDoF();
+            document.getElementById("doK").innerText = nhietDo.getDoK();
+        }
+
+    }
+
+
+
+</script>

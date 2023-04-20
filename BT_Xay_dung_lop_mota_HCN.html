@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="d" type="text" placeholder="nhập chiều dài">
+<br>
+<input id="r" type="text" placeholder="nhập chiều dài">
+<br>
+<button onclick="hienThi()">Hiển thị kết quả</button>
+<br>
+<p>Chu vi HCN: <span id="para"></span></p>
+<p>Diện tích HCN: <span id="ara"></span></p>
+<canvas id="hCN" style="border: 1px solid black"></canvas>
+</body>
+</html>
+
+<script>
+    class Rectangle {
+        height;
+        width;
+
+        constructor(height, width) {
+            this.height = height;
+            this.width = width;
+        }
+
+        getAcreage() {
+            return height * width;
+        }
+
+        getPerimeter() {
+            return (height + width) * 2;
+        }
+        getVeHCN(){
+            HCN()
+        }
+
+    };
+
+    //vẽ hình chữ nhật
+    function HCN() {
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "red";
+        ctx.fillRect(50, 50, height,width);
+    }
+
+    // lấy giá trị từ input trong html xuống
+    function hienThi() {
+        height = parseInt(document.getElementById("d").value);
+        width = parseInt(document.getElementById("r").value);
+       let giaTri = new Rectangle(height, width);
+
+        document.getElementById("para").innerHTML = giaTri.getPerimeter();
+        document.getElementById("ara").innerHTML = giaTri.getAcreage();
+    }
+
+</script>
